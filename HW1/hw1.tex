@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+	
+\title{M 476 - Homework 1}
+\author{Nathan Stouffer}
+
+\maketitle
+\newpage
+
+\section*{Problem 1}
+Problem Statement: Give an example of a bijection that is not a homeomorphism. \\\\
+Solution: Let $A= {y \in \mathbb{R} \mid 0 < y \leq 1}$. Now consider the map $f: \mathbb{R} \to \mathbb{R} \setminus A$ defined by $f(x)= 
+\begin{cases} 
+x & x\leq 0 \\
+x + 1 & x > 0 \\
+\end{cases} $
+$f$ is a bijection because it is one-to-one and onto, but $f$ is discontinuous at $x=0$ and, therefore, is not a homeomorphism.
+\newpage
+
+\section*{Problem 2}
+\subsection*{Exercise 1.2}
+Problem statement: Find an explicit formula for a homeomorphism from $(0,1)$ to the real line. \\\\
+Solution: Let $X=\{x \in \mathbb{R} \mid 0<x<1\}$ and $Y=\{ y \in \mathbb{R}\}.$ A map $f: X \to Y$ exists. More specifically, $f(x)= \log (\dfrac{1}{x} - 1)$. $f$ is continuous on $X$ so we must now show that the inverse of $f$ is continuous. The inverse of $f$ is $g: Y \to X$ where $g(y)= \dfrac{1}{10^y + 1}$. The function $g$ is continuous on $Y$. Therefore, $f$ describes an explicit formula for a homeomorphism from $X$ to $Y$.
+
+\subsection*{Exercise 1.4}
+Problem statement: Show that the plane sets $\{(x,y) \mid 0 < x^2 + y^2 < 1 \}$ and $\{(x,y) \mid 1 < x^2 + y^2 < 4 \}$ are homeomorphic. Let $D$ be the closed disc $\{(x,y) \mid x^2 + y^2 \leq 1 \}$. Show that the plane with the origin removed is homeomorphic to the plane with the disc $D$ removed. \\\\
+Solution: First, we will show that the plane sets $\{(x,y) \mid 0 < x^2 + y^2 < 1 \}$ and $\{(u,v) \mid 1 < u^2 + v^2 < 4 \}$ are homeomorphic. Let $X$ be the first set and $U$ be the second. The map $f: X \to U$ where $f(x,y)= (4-3x, 4-3y)$. The inverse of $f$ is $g: U \to X$ where $g(u,v)=(\dfrac{4-u}{3}, \dfrac{4-v}{3})$. Both $f$ and $g$ are continuous and map to the correct sets, therefore, $X$ and $U$ are homeomorphic. \\\\
+We now show that the plane with the origin removed is homeomorphic to the plane with the disc $D$ removed. Let $X$ be the plan with the origin removed and $U$ be the plane with the disc $D$ removed. We define $f: X \to U$ where $f(x,y)= (\dfrac{1}{x} + 1, \dfrac{1}{y} + 1)$ and its inverse as $g: U \to X$ where $g(u,v)= (\dfrac{1}{u-1}, \dfrac{1}{v-1})$. Both $f$ and $g$ are continuous and map to the correct sets, therefore, $X$ and $U$ are homeomorphic.
+
+\subsection*{Exercise 1.5}
+Problem statement: Show that the cone $\{ (x,y,z) \mid x^2 + y^2 = z^2, z \geq 0 \}$ is homeomorphic to the plane. \\\\
+Solution: Let $X=\{ (x,y,z) \mid x^2 + y^2 = z^2, z \geq 0 \}$ and $U=\{ (u,v) \mid (u,v) \in \mathbb{R} \}$. We map $X$ to $U$ by projecting the cone $X$ onto the $xy$-plane. We define $f: X \to U$ by $f(x,y,z)= (x,y)$. The inverse of $f$ is defined as $g: U \to X$ by $g(x,y)= (x,y,\sqrt{x^2 + y^2})$. Both $f$ and $g$ are continuous maps to their respective sets and thus it is proved that $X$ is homeomorphic to the plane.
+
+\subsection*{Exercise 1.7}
+Problem statement: Let $C$ be the cube $\{ (x,y,z) \mid 0 < x,y,z < 1 \}$ and let $B$ be the ball $\{ (x,y,z) \mid x^2 + y^2 + z^2 < 1 \}$. Show that $B$ and $C$ are homeomorphic. \\\\
+Solution: We begin by showing that $C$ is homeomorphic to $\mathbb{R}^3$. We define $f: C \to \mathbb{R}^3$ by $f(x,y,z) = (\log({\dfrac{1}{x}-1}), \log({\dfrac{1}{y}-1}), \log({\dfrac{1}{z}-1}))$ with inverse defined as $g: \mathbb{R}^3 \to C$ by $g(u,v,w)=(\dfrac{1}{10^u + 1}, \dfrac{1}{10^v + 1}, \dfrac{1}{10^w + 1})$. Both $f$ and its inverse $g$ are continuous so $C \cong \mathbb{R}^3$. \\\\
+We now move on to show that $B \cong \mathbb{R}^3$. Begin by converting $\{ (x,y,z) \mid x^2 + y^2 + z^2 < 1 \}$ to spherical coordinates. This gives $B$ as $\{ (r, \theta, \phi) \mid r < 1, 0 < \theta < 2\pi, 0 < \phi < \pi \}$. We now define $f: B \to \mathbb{R}^3$ by $f(r, \theta, \phi)= (\dfrac{r}{1-r}, \theta, \phi)$ with inverse defined as $g: \mathbb{R}^3 \to B$ by $g(r, \theta, \phi)= (\dfrac{r}{1+r}, \theta, \phi)$. Both $f$ and its inverse $g$ are continuous so $B \cong \mathbb{R}^3$. \\\\
+So we know that $C \cong \mathbb{R}^3$ and $B \cong \mathbb{R}^3$, therefore, by the transitive property of homeomorphism, $B \cong C$.
+
+\newpage
+
+\section*{Problem 3}
+Problem statement: Prove that $X= \{ (x,y) \mid y - \sin{2 \pi x} = 0 \text{ and } y = 1 \} \subset \mathbb{R}^3$ and $Y= \{ (x,y,z) \mid y - 2 \pi x = 0 \}$ are not homeomorphic. \\\\
+Solution: First we observe that $Y$ is continuous for all inputs $(x,y,z)$ and has uncountably infinite elements. We then turn to $X$, where we notice that $y=1$. Knowing this, $y-\sin{2 \pi x}= 1 - \sin{2 \pi x} = 0$. We then solve for $x$:
+\begin{align*}
+	1 &= \sin{2 \pi x} & \text{subtract } \sin{2 \pi x} \text{ from both sides} \\
+	\arcsin(1) &= 2 \pi x & \text{take the inverse of sine of both sides} \\
+	\dfrac{\pi}{2} + n\pi &= 2 \pi x & \text{where $n \in \mathbb{Z}$} \\
+	x &= \dfrac{1}{4} + \dfrac{n}{2} & \text{divide both sides by $2\pi$}
+\end{align*}
+Now note that any value of $x \in X$ is at a discrete interval with another $x_1 \in X$. This means that the number of elements in $X$ is countably infinite. Knowing this, we can say that any map from $X$ to $Y$ cannot be one-to-one since the cardinality of the sets $X$ and $Y$ are not equal. And since no one-to-one mapping exists between the two sets, $X$ and $Y$ cannot be homeomorphic. 
+
+\end{document}

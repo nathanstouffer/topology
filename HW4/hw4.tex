@@ -1,0 +1,279 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\title{M 476 - Homework 4}
+\author{Nathan Stouffer}
+
+\maketitle
+\newpage
+
+% optional
+%\section*{Problem 1}
+
+\section*{Problem 2}
+Problem: For which
+$n \geq 1$ is $SO(n)$
+path-connected? Justify your answer. \\\\
+% what about n = 1?
+Solution: We begin by defining
+$SO(n)$:
+$$SO(n) := \{ A_{n \times n \text{ matrix}} \mid A^T A = I_{n \times n} \text{ and } det(A) > 0 \}$$
+The set
+$SO(n)$
+can also be thought of as the set of all rotations of
+$\mathbb{R}^n$
+about the origin. \\\\
+We first show that
+$n = 1$ is path connected.
+$SO(1)$
+has only one element: 
+$[1]$.
+Therefore,
+$SO(1)$
+is path connected. \\\\
+We now shows that, for 
+$n \geq 2, \text{ } SO(n)$
+is path-connected. Let 
+$ V = \{ \vec{v}_1 , \vec{v}_2, ..., \vec{v}_n \}$
+be an orthonormal basis (that respects orientation) for 
+$\mathbb{R}^n$.
+The basis
+$V$
+must be an element of
+$SO(n)$
+since the elements of 
+$V$
+could be the columns of a
+$n \times n$
+matrix that is both orthonormal and whose determinant is greater than 0 (since 
+$V$
+respects orientation).
+Since
+$V$
+is an arbitrary element of 
+$SO(n)$,
+if we can find a continuous map from 
+$V$
+to another arbitrary element
+$E = \{ \vec{e}_1 , \vec{e}_2, ..., \vec{e}_n \}$
+then we will know that
+$SO(n)$
+is path-connected. \\\\
+Take an arbitrary natural number 
+$k \geq 2$
+for
+$SO(k)$.
+Then, 
+$V = \{ \vec{v}_1, \vec{v}_2, ... \vec{v}_k \}$
+and
+$E = \{ \vec{e}_1, \vec{e}_2, ... \vec{e}_k \}$.
+We will prove that
+$V$
+and
+$E$
+are connected by inductively rotating each element of 
+$V$
+to match the position of
+$E$. \\\\
+We begin with the base case of
+$\vec{v}_1$. We will now construct a path from
+$\vec{v}_1$
+to
+$\vec{e}_1$.
+Let
+$\vec{p}_1$
+be a unit vector such that
+$\vec{p}_1 \perp \vec{e}_1$
+and
+$v_1 \in span\{\vec{p}_1, \vec{e}_1\}$.
+Then,
+$\exists t_1 \in [0, 2 \pi] \text{ such that } \vec{v}_1 = \cos (t) * \vec{e}_1 + \sin (t) * \vec{p}_1$.
+Then,
+$[0, t_1] \to SO(k)$
+is defined by
+$t_1 \mapsto (\vec{v}_1, \vec{v}_2, ..., \vec{v}_k)$
+and
+$0 \mapsto (\vec{e}_1, \vec{v\prime}_2, ..., \vec{v\prime}_k)$.
+Since
+$\cos (t) \vec{e}_1 + \sin (t) \vec{p}_1$
+is made up of continuous functions, the arbitrary elements
+$\vec{v}_1$
+and
+$\vec{e}_1$
+must be path-connected. \\\\
+Our inductive assumption is as follows: for an arbitrary
+$s \geq 2$,
+let
+$\vec{v}_s \in V$
+and assume
+$\forall \vec{v}_t \text{ such that } t \leq s$
+that
+$\vec{v}_t = \vec{e}_t$. \\\\
+We will now show that there exists a path from 
+$\vec{v}_{s+1}$
+to
+$\vec{e}_{s+1}$.
+Let
+$V \prime \in SO(k)$
+be such a vector as described in the inductive assumption. Then, 
+$V \prime = \{ \vec{e}_1, \vec{e}_2, ... , \vec{e}_s, \vec{v\prime}_{s+1}, ... \vec{v\prime}_k \}$.
+Now let
+$\vec{p\prime}$
+be a vector perpendicular to
+$\vec{e}_{s+1}$
+such that 
+$\vec{v}_{s+1} \in span\{\vec{p\prime}, \vec{e}_{s+1}\}$.
+We know that such a vector
+$p\prime$
+exists because of Graham-Schmitt orthogonolization. Then
+$\exists t_2 \in [0, 2 \pi ] \text{ such that } \vec{v}_{s+1} = cos(t) * \vec{e}_{s+1} + sin(t) * \vec{p\prime}$.
+Now, we hold all vectors
+$\vec{v\prime}_r \in V^\prime$
+such that
+$\vec{v\prime}_r = \vec{e}_r$
+constant and rotate all remaining vectors in
+$V^\prime$ according to 
+$cos(t) * \vec{e}_{s+1} + sin(t) * \vec{p\prime}$.
+Specifically,
+$t_2 \mapsto (\vec{e}_{1}, \vec{e}_2, ..., \vec{e}_s, \vec{e}_{s+1}, ... , \vec{v\prime \prime}_k)$
+and
+$0 \mapsto (\vec{e}_1, \vec{e}_2, ..., \vec{e}_s, \vec{v\prime}_{s+1}, ... \vec{v\prime}_k)$.
+The path must be continuous for it is made up of continuous input and operations. \\\\
+Thus, by induction,
+$SO(n)$
+is path-connected for
+$n \geq 2$. \\\\
+Furthermore, by inspection, we saw that
+$SO(1)$
+is path-connected. Therefore,
+$SO(n)$
+for
+$n \geq 1$
+is path-connected.
+
+\newpage
+\section*{Problem 3}
+Problem: Let $r > 0$. Consider the set
+$$X_r := \{ (a_1, a_2, ... , a_d) \in (\mathbb{S}^1)^{\times r} \mid a_i = a_j \text{ only if } i = j \} \subset (\mathbb{S}^1)^{\times r} \subset (\mathbb{R}^2)^{\times r} = \mathbb{R}^{2r}$$
+What is the cardinality of 
+$ \pi _0 (X_r)$
+? \\\\
+Solution: We note that elements of
+$X_r$
+are sets of
+$r$
+distinct points on the unit circle. Given an arbitrary set of points
+$x \in X_r$,
+there is guaranteed to exist a homeomorphism (specifically a rotation) that takes
+$x_1 \in x$
+to the point 
+$(1,0)$.
+Now consider the complement of
+$x \subset \mathbb{S}^1$.
+This will be the disjointed circle
+$\mathbb{S}^1 \setminus x$.
+There now exists a homeomorphism from
+$\mathbb{S}^1 \setminus x$
+to the interval
+$(0, 2 \pi)$. \\\\
+The points that were initially in
+$x$
+are now distributed as holes across the interval
+$(0, 2 \pi)$.
+We call this set of holes
+$Y_{r-1}$.
+Since the complements of
+$X_r$
+and 
+$Y_{r-1}$
+are homeomorphic,
+$X_r$
+and
+$Y_{r-1}$
+must also be homeomorphic by Theorem 3.2 from the textbook (Equivalent subsets have equivalent complements). Furthermore, since
+$X_r \cong Y_{r-1}$,
+it must also be true that
+$| \pi_0 (X_r) | = | \pi_0 (Y_{r-1}) |$.
+Now,
+$|  \pi_0 (Y_{r-1}) |$
+is equal to the number of orderings of 
+$r-1$ numbers on the real line. This is given by
+$(r - 1)!$.
+Thus,
+$| \pi_0 (X_r) | = (r - 1)!$
+
+\newpage
+\section*{Problem 4}
+Problem: Is there a continuous surjection
+$f: \mathbb{S}^2 \times \mathbb{S}^1 \to O(3)$
+? \\\\
+Solution: We will prove this by contradiction. Assume there exists a continuous and surjective 
+$f: \mathbb{S}^2 \times \mathbb{S}^1 \to O(3)$.
+Then, the map
+$\gamma : \pi_0(\mathbb{S}^2 \times \mathbb{S}^1) \to \pi_0 (O(3))$
+must also be surjective. We now disprove this statement. \\\\
+We first examine the cardinality of
+$\mathbb{S}^2 \times \mathbb{S}^1$.
+The following was proved in Homework 3 Problem 3:
+$\mathbb{S}^n$
+is path connected if 
+$n \geq 1$.
+This implies that both
+$\mathbb{S}^2$
+and $\mathbb{S}^1$
+are path connected. Furthermore, it was proved in Homework 3 Problem 4 that
+$X \times Y$
+is path-connected iff
+$X$
+and
+$Y$
+are each path-connected.
+Thus,
+$\mathbb{S}^2 \times \mathbb{S}^1$
+is path connected. This implies that
+$| \pi_0 (\mathbb{S}^2 \times \mathbb{S}^1) | = 1$. \\\\
+We now turn to the cardinality of
+$O(3)$.
+The set of matrices that compose
+$O(3)$
+must orthonormal. We now choose two specific orthonormal matrices and show that they are in different path components. Take a matrix 
+$A$
+and the matrix
+$A^\prime$
+where the columns of
+$A^\prime$
+are equal to the columns of
+$A$
+with the exception of the first column. Set
+$\vec{a\prime}_1 = -1 * \vec{a}_1$.
+The matrices
+$A$
+and
+$A^\prime$
+are identical with the exception that one pair of their vectors are scaled by -1. We can then begin rotating
+$\vec{a\prime}_1$
+to
+$\vec{a}$
+while staying within the same path component. However, we cannot completely rotate
+$\vec{a\prime}_1$
+since, to reach
+$\vec{a}_1$,
+$\exists \vec{a}_i, \vec{a}_j \text{ such that } \vec{a\prime}_1 \in span\{\vec{a}_i, \vec{a}_j \}$
+at some point. This means that, at some point in the rotation,
+$A^\prime$
+will not be orthonormal. This implies that
+$\pi_0 O(3) > 1$. \\\\
+Since
+$1 \nleq 1$,
+know that the number of path components of
+$\mathbb{S}^2 \times \mathbb{S}^1$
+is different than the number of path components of
+$O(3)$. Thus, a contradiction is found and there does not exist a continuous surjection
+$f: \mathbb{S}^2 \times \mathbb{S}^1 \to O(3)$.
+
+\end{document}
