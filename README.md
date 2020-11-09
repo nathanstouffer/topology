@@ -6,4 +6,6 @@ Past HW5, the proofs that I wrote for this class became more reliant on drawings
 
 The clustering directory contains a python script to visualize two sets of points (one a subset of R^2, the other a subset of R^3). I wrote the script because we used those two sets of points as examples for a project focused on persistent homology.
 
-The directory P_4 is a python program that displays all elements of P_4 (the set of equilateral 4-gons in the plane up to translation and rotation). Note that, P_4 can be considered a graph as a subset of the torus S^1 \cross S^1
+The directory *P_4/* contains a python script that displays all elements of P_4 (the set of equilateral 4-gons in the plane up to translation and rotation). Note that, P_4 can be considered a graph as a subset of the torus S^1 \cross S^1
+
+Then *notes/* directory is the work of David Ayala (the course instructor), none of that is my own.
